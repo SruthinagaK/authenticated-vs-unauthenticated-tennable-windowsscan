@@ -5,11 +5,30 @@
 This project documents a vulnerability assessment conducted on a virtual Windows machine using Tenable.io with both authenticated and unauthenticated scans in a controlled cyber range environment.
 
 ## 🛠️ Environment Setup
-- **Platform**: Virtual Windows 10/11
-- **Scanner**: Tenable.io Internal Scanner
-- **Scan Types**: 
-  - Authenticated Scan (with credentials)
-  - Unauthenticated Scan
+- **Platform**: Virtual Windows 10 Pro
+- **Instance Specs**: Standard DS1_v2, 1 vCPU, 3.5 GiB memory, Standard HDD, Locally Redundant Storage (LRS)
+- **Network**: Cyber Range VNet with subnet 10.0.0.0/21
+
+- ## 🎯 Objectives
+- Identify and analyze vulnerabilities in a virtual Windows system
+- Compare scan results from authenticated vs. unauthenticated scans
+- Perform a risk assessment based on NIST SP 800-30 and CVSS scores
+- Provide actionable recommendations for mitigation and continuous monitoring
+
+## 🧰 Tools & Technologies
+- **Tenable.io / Tenable.sc**
+- **Internal Scanner**
+- **Windows 10/11 Virtual Machine**
+- **National Vulnerability Database (NVD)**
+- **NIST Cybersecurity Framework (CSF)**
+
+
+## 🔍 Scan Methodology
+- **Authenticated Scan**: Performed with valid credentials to simulate insider access
+- **Unauthenticated Scan**: Simulated external attacker with no credentials
+- **Scan Targets**: Virtual Windows machine configured with common services
+
+
 
 ## 📊 Scan Results Summary
 - Total Vulnerabilities: XX
@@ -22,6 +41,10 @@ This project documents a vulnerability assessment conducted on a virtual Windows
 ## 🧠 Risk Assessment
 - Based on NIST SP 800-30 and NVD CVSS scores
 - Risk levels assigned using Risk Management Hierarchy Tiers
+### Network Architecture Diagram
+![Network Architecture Diagram](network_architecture_diagram.png)
+
+
 
 ## 🛡️ Recommendations
 - Patch critical vulnerabilities immediately
