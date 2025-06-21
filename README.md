@@ -135,8 +135,28 @@ The identified vulnerabilities impact the following Risk Management Hierarchy Ti
 ## 🛡️ Recommendations
 
 ## 1. Apply Security Controls from NIST SP 800-53 Rev. 5
+As I have identified the the top 3 vulnerabilties 
+-   Microsoft 3D Viewer RCE
+-   Microsoft Paint 3D RCE
+-   WinVerifyTrust Signature Validation flaw
+These are all remote code execution (RCE) vulnerabilities, which can allow attackers to run arbitrary code, compromise system integrity, and potentially exfiltrate data.
+To mitigate the identified vulnerabilities, Map Vulnerability Characteristics to Control Families:
 
-To mitigate the identified vulnerabilities, implement the following relevant controls:
+Using the NIST SP 800-53 Rev. 5 control catalog, you matched the nature of these vulnerabilities to relevant control families:
+ 
+| **Vulnerability Risk**       |         **Relevant Control Family**                    | **Reason**                                                                 |
+|------------------------------|--------------------------------------------------------|------------------------------------------------------------------------------|
+| **RCE via software flaws**   | System and Information Integrity (SI)                  | To detect and remediate flaws (e.g., SI-02, SI-03)                         |
+| **Unauthorized access**      | Access Control (AC)                                    | To restrict access to sensitive components (e.g., AC-03)                   |
+| **Misconfigurations**        | Configuration Management (CM)                          | To enforce secure system baselines (e.g., CM-02)                           |
+| **Lack of visibility**       | Audit and Accountability (AU)                          | To monitor and analyze system activity (e.g., AU-06)                       |
+| **Incident response gaps**   | Incident Response (IR)                                 | To respond to exploitation attempts (e.g., IR-04).                         |
+| **Ongoing exposure**         | Risk Assessment (RA)                                   | To continuously scan and assess vulnerabilities (e.g., RA-05)              |
+
+
+Selected Specific Controls controls based on their alignment with the vulnerabilities:
+
+
 
 | **Control ID** | **Control Name**                                      | **Purpose**                                                                 |
 |----------------|--------------------------------------------------------|------------------------------------------------------------------------------|
