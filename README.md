@@ -24,14 +24,34 @@ This project documents a vulnerability assessment conducted on a virtual Windows
 
 
 ## 🔍 Scan Methodology
-- **Authenticated Scan**: Performed with valid credentials to simulate insider access
-- **Unauthenticated Scan**: Simulated external attacker with no credentials
+- **Authenticated Scan**: Performed with valid credentials to simulate insider access with credential uuser : 21 minutes 
+- **Unauthenticated Scan**: Simulated external attacker with no credentials : 9  minutes
 - **Scan Targets**: Virtual Windows machine configured with common services
 
 
 
 ## 📊 Scan Results Summary
-- Total Vulnerabilities: XX
+- Target: Virtual Windows 10 Pro machine
+- Location: Cyber Range (VNet: 10.0.0.0/21)
+- Scan Tools: Tenable.io Internal Scanner
+- Scan Types:
+-   Unauthenticated Scan: 9 minutes
+-   Authenticated Scan: 21 minutes
+
+-   ## Vulnerability Summary
+
+| **Scan Type**       | **Critical** | **High** | **Medium** | **Low** | **Info** | **Total** |
+|---------------------|--------------|----------|------------|---------|----------|-----------|
+| Unauthenticated     | 0            | 0        | 6          | 1       | 29       | 36        |
+| Authenticated       | 0            | 5        | 19         | 3       | 132      | 159       |
+
+### Summary:
+- The **authenticated scan** revealed significantly more vulnerabilities, including **5 high-severity** and **19 medium-severity** issues.
+- The **unauthenticated scan** detected mostly **surface-level issues**, primarily related to **SSL/TLS** and **SMB configurations**.
+
+![unauthenticated scan](https://github.com/SruthinagaK/authenticated-vs-unauthenticated-tennable-windowsscan/blob/main/windows-10-Scan_auhtenticated.pdf) [Authenticated scan](https://github.com/SruthinagaK/authenticated-vs-unauthenticated-tennable-windowsscan/blob/main/windows-10-Scan_auhtenticated.pdf)
+
+
 - Critical: X | High: X | Medium: X | Low: X
 - Top 3 CVEs:
   - CVE-XXXX-XXXX
@@ -42,7 +62,7 @@ This project documents a vulnerability assessment conducted on a virtual Windows
 - Based on NIST SP 800-30 and NVD CVSS scores
 - Risk levels assigned using Risk Management Hierarchy Tiers
 ### Network Architecture Diagram
-![Network Architecture Diagram](network_architecture_diagram.png)
+![Network Architecture Diagram](network_architecture_diagram.png)  
 
 
 
