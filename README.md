@@ -9,6 +9,10 @@ This project documents a vulnerability assessment conducted on a virtual Windows
 - **Instance Specs**: Standard DS1_v2, 1 vCPU, 3.5 GiB memory, Standard HDD, Locally Redundant Storage (LRS)
 - **Network**: Cyber Range VNet with subnet 10.0.0.0/21
 
+- ### Network Architecture Diagram
+![Network Architecture Diagram](network_architecture_diagram.png)  
+
+
 - ## 🎯 Objectives
 - Identify and analyze vulnerabilities in a virtual Windows system
 - Compare scan results from authenticated vs. unauthenticated scans
@@ -40,6 +44,8 @@ This project documents a vulnerability assessment conducted on a virtual Windows
 
 -   ## Vulnerability Summary
 
+
+
 | **Scan Type**       | **Critical** | **High** | **Medium** | **Low** | **Info** | **Total** |
 |---------------------|--------------|----------|------------|---------|----------|-----------|
 | Unauthenticated     | 0            | 0        | 6          | 1       | 29       | 36        |
@@ -49,20 +55,36 @@ This project documents a vulnerability assessment conducted on a virtual Windows
 - The **authenticated scan** revealed significantly more vulnerabilities, including **5 high-severity** and **19 medium-severity** issues.
 - The **unauthenticated scan** detected mostly **surface-level issues**, primarily related to **SSL/TLS** and **SMB configurations**.
 
-![unauthenticated scan](https://github.com/SruthinagaK/authenticated-vs-unauthenticated-tennable-windowsscan/blob/main/windows-10-Scan_auhtenticated.pdf) [Authenticated scan](https://github.com/SruthinagaK/authenticated-vs-unauthenticated-tennable-windowsscan/blob/main/windows-10-Scan_auhtenticated.pdf)
 
+# Top Vulnerabilities Comparison
 
-- Critical: X | High: X | Medium: X | Low: X
-- Top 3 CVEs:
-  - CVE-XXXX-XXXX
-  - CVE-YYYY-YYYY
-  - CVE-ZZZZ-ZZZZ
+## 🔐 Top 3 Vulnerabilities (Authenticated Scan)
 
+| **Severity** | **Plugin ID** | **Vulnerability Name**                                                                 |
+|--------------|----------------|----------------------------------------------------------------------------------------|
+| High         | 181297         | Microsoft 3D Viewer app Multiple Remote Code Execution Vulnerabilities (Sep 2023)     |
+| High         | 141430         | Microsoft 3D Viewer Base3D Code Execution (Oct 2020)                                  |
+| High         | 178245         | Microsoft Paint 3D Code Execution (Jul 2023)                                          |
+
+These are **remote code execution (RCE)** vulnerabilities in Microsoft 3D Viewer and Paint 3D, which could allow attackers to execute arbitrary code on the system.
+
+## 🛡️ Top 3 Vulnerabilities (Unauthenticated Scan)
+
+| **Severity** | **Plugin ID** | **Vulnerability Name**                                           |
+|--------------|----------------|------------------------------------------------------------------|
+| Medium       | 157288         | TLS Version 1.1 Deprecated Protocol                              |
+| Medium       | 42873          | SSL Medium Strength Cipher Suites Supported (SWEET32)           |
+| Medium       | 57608          | SMB Signing not required                                        |
+
+These are **configuration and protocol weaknesses** that could expose the system to man-in-the-middle attacks or downgrade attacks.
+
+## 📄 Evidence
+-   ![unauthenticated scan](https://github.com/SruthinagaK/authenticated-vs-unauthenticated-tennable-windowsscan/blob/main/windows-10-Scan_unauthenticated.pdf)   ![Authenticated scan](https://github.com/SruthinagaK/authenticated-vs-unauthenticated-tennable-windowsscan/blob/main/windows-10-Scan_auhtenticated.pdf)
+
+ 
 ## 🧠 Risk Assessment
 - Based on NIST SP 800-30 and NVD CVSS scores
 - Risk levels assigned using Risk Management Hierarchy Tiers
-### Network Architecture Diagram
-![Network Architecture Diagram](network_architecture_diagram.png)  
 
 
 
